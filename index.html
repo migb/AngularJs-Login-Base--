@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Login App with AngularJS</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<!--Css-->
+	<link rel="stylesheet" href="public/css/lib/bootstrap.css">
+	<link rel="stylesheet" href="public/css/styles.css">
+
+	<!--Js Base-->
+	<script src="public/js/lib/angular_1.5.9.js"></script>
+
+	<!--Js Modules-->
+	<script src="app/modules/angular-route.min.js"></script>
+	<script src="app/modules/appModule.js"></script>
+
+	<!--Js Config-->
+	<script src="app/config/routes-config.js"></script>
+	
+	<!--Js Controllers-->
+	<script src="app/controllers/loginController.js"></script>
+	<script src="app/controllers/panelController.js"></script>
+	<script src="app/controllers/somepageController.js"></script>
+
+	<!--Js Services/Factories-->
+	<script src="app/services/sessionService.js"></script>
+
+</head>
+<body>
+	<ng-view></ng-view>
+
+</body>
+</html>
