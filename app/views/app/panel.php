@@ -1,0 +1,1 @@
+<h1>Welcome to your panel. ID: <?php print(uniqid().'-'.uniqid().'-'.uniqid()); ?></h1>

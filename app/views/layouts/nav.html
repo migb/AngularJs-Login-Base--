@@ -1,6 +1,14 @@
+<!-- Script to protect the view -->
+<script type="text/javascript">
+	if(typeof appinit === 'undefined'){
+		window.location.href = "../../../";
+	}
+</script>
+<!-- end script -->
+
 <div class="container">
       <!-- Static navbar -->
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default" ng-controller="navbarController">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,12 +21,13 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/panel">Home</a></li>
+              <li><a href="#/panel">Home</a></li>
               <li><a href="#/somepage">Somepage</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../navbar-fixed-top/"><b>Sign out</b></a></li>
+              <li><a href="#" ng-click="logout()"><b>Sign out</b></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+    </container>

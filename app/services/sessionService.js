@@ -1,8 +1,9 @@
 'use strinc';
 angular.module("loginApp")
-	.factory("sessionService", ["$http", "$location", function($http, $location){
+	.factory("sessionService", ["$http", "$location", "blockUI", function($http, $location, blockUI){
 		return{
 			login: function(user){
+				blockUI.start();
 				var response = {};
 			  $http.post("app/models/xhr_handler.php?r=login", user)
 					.success(function(res){
@@ -22,12 +23,13 @@ angular.module("loginApp")
 							response.error = true;
 							response.message = "Database error, try again later";
 						}
-
+						blockUI.stop();
 					})
 					.error(function(err){
 						console.error(err);
 					});
 					return response;
+
 			},
 			validate: function(requested_url){
 				if(sessionStorage.authToken){
@@ -73,6 +75,23 @@ angular.module("loginApp")
 						});
 				}
 				return response;
+			},
+			logout: function(){
+				var localToken = {
+					token: sessionStorage.authToken
+				};
+				$http.post("app/models/xhr_handler.php?r=logout", localToken)
+					.success(function(data){
+						if(data){
+							sessionStorage.removeItem("authToken");
+							$location.path("/");
+						}else{
+							console.error("Database trouble while ending a session");
+						}
+					})
+					.error(function(err){
+						console.error(err);
+					})
 			}
 		};
 	}]);

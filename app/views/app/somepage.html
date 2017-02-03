@@ -1,8 +1,19 @@
+<!-- Script to protect the view -->
+<script type="text/javascript">
+	if(typeof appinit === 'undefined'){
+		window.location.href = "../../../";
+	}
+</script>
+<!-- end script -->
+
 <div ng-if="navigation" ng-include="'app/views/layouts/nav.html'"></div>
 <div class="container">
 	<div class="jumbotron">
 	        <h1>AngularJS Login APP</h1>
-	        <p>Welcome to <b>somepage</b> of the app, {{userInfo.username}}. With this login system template your web applications will need less effort. Try this secure(?) module :)</p>
+	        <p>Welcome to <b>somepage</b> of the app, {{userInfo.username}}.</p>
+					<div class="well">
+						<p class="text-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
 	        <p>
 	          <a class="btn btn-lg btn-primary" href="#/somepage" role="button">View login docs &raquo;</a>
 	        </p>

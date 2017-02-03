@@ -16,7 +16,6 @@ angular.module("loginApp")
       $scope.loggedInValidation();
       //this gets the username for logged user. use it in the views that you want to show it
       $scope.getUser();
-   
 
 
 	}]);

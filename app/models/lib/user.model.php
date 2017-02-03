@@ -35,7 +35,6 @@ class User
           session_start();
           $_SESSION['userToken'] = $token;
           $_SESSION['userName'] = $username;
-
           return json_encode($response);
         }else{
 
@@ -65,7 +64,7 @@ class User
 
     $tokenExist = $db->rows($db->query("SELECT U.userToken FROM user AS U WHERE U.userToken = '{$token}';"));
 
-    if($tokenExist == 1 && isset($_SESSION["userToken"]) && $_SESSION["userToken"] == $token){
+    if($tokenExist == 1 && isset($_SESSION["userToken"]) && $_SESSION["userToken"] == $token && $token != 'undefined'){
         return json_encode(array('state'=>true));
     }else{
       return json_encode(array('state'=>false));
@@ -81,6 +80,23 @@ class User
     $user_info = array("username"=>$username,
                        "status"=> 200);
     return json_encode($user_info);
+  }
+
+  public function endSession($_token){
+    $db = new ConnectionString();
+    $token = htmlspecialchars(addslashes($_token));
+
+    //Change database token to "undefined"
+    $removeToken = $db->query("UPDATE user AS U SET U.userToken = 'undefined' WHERE U.userToken = '{$token}';");
+
+    if(!$removeToken){
+      return false;
+    }else{
+      session_start();
+      session_destroy();
+      return true;
+    }
+
   }
 
 

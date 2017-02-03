@@ -3,7 +3,7 @@
   to create the table and populate it.
 
   @test user info = {
-      username: test,
+      username: root,
       passowrd: test
   }
 =============================================================================*/
@@ -19,6 +19,6 @@ CREATE TABLE user
 
 
 INSERT INTO user VALUES(null,
-                        'test',
+                        'root',
                         'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',
                         'undefined');
